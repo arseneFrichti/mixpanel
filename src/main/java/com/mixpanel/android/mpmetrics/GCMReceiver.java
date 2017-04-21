@@ -204,7 +204,9 @@ public class GCMReceiver extends BroadcastReceiver {
 
         final Intent notificationIntent = buildNotificationIntent(context, uriString, campaignId, messageId);
 
-        return new NotificationData(notificationIcon, largeNotificationIcon, whiteNotificationIcon, notificationTitle, message, notificationIntent, color);
+        int icon = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? R.drawable.ic_launcher: R.mipmap.ic_launcher;
+
+        return new NotificationData(icon, icon, icon, notificationTitle, message, notificationIntent, color);
     }
 
     private Intent buildNotificationIntent(Context context, String uriString, String campaignId, String messageId) {
